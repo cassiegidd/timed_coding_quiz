@@ -1,0 +1,22 @@
+* {
+    background-color: darkslategrey;
+}
+h1 {
+    text-align: center;
+    background-color: black;
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 8px;
+}   
+#start-quiz {
+    text-align: center;
+}
+#timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#count-down {
+    font-size: 30px;
+    padding-left: 15px;
+}
