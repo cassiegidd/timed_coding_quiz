@@ -5,11 +5,14 @@ h1 {
     text-align: center;
     background-color: black;
     color: gray;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Sono', sans-serif;
     letter-spacing: 8px;
 }   
 #start-quiz {
     text-align: center;
+}
+#start-button {
+    background-color: gray;
 }
 #timer {
     display: flex;
