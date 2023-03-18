@@ -21,27 +21,30 @@
             </div>
         </div>
         <div class="quiz-content">
-            <p class="questions"></p>
-            <fieldset>
-                <ul class="answer-options">
-                    <li>
-                        <input type="checkbox" id="option-one" value="">
-                        <label for="option-one"></label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="option-two" value="">
-                        <label for="option-two"></label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="option-three" value="">
-                        <label for="option-three"></label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="option-four" value="">
-                        <label for="option-four"></label>
-                    </li>
-                </ul>
-            </fieldset>
+            <form>
+                <fieldset hidden id="fieldset1">
+                    <legend class="questions">An array...</legend>
+                    <ul class="answer-options">
+                        <li>
+                            <input name="answer1" type="radio" id="q1a1">
+                            <label for="option-one" id="option-one">can contain only one data type</label>
+                        </li>
+                        <li>
+                            <input name="answer1" type="radio" id="q1a2">
+                            <label for="option-two" id="option-two">begins at index 1</label>
+                        </li>
+                        <li>
+                            <input name="answer1" type="radio" id="q1a3">
+                            <label for="option-three" id="option-three">is not resizable</label>
+                        </li>
+                        <li>
+                            <input name="answer1" type="radio" name="option-four" value="correct" id="q1a4">
+                            <label for="option-four" id="option-four">can be defined with empty slots</label>
+                        </li>
+                    </ul>
+                    <button class="submit-button" id="submit-button-one">SUBMIT</button>
+                </fieldset>
+            </form>
         </div>
     </main>
    
