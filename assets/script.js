@@ -2,6 +2,7 @@ var startBtn = document.querySelector("#start-button");
 var timer = document.querySelector("#count-down");
 var timeLeft = 60; //do i need this in the global and do i need to pass this value in the global variable?
 var fieldset1 = document.querySelector("#fieldset1");
+var submitBtn1 = document.querySelector("#submit-button-one");
 var questions = document.querySelector(".questions");
 var labelOne = document.querySelector("#option-one");
 var labelTwo = document.querySelector("#option-two");
@@ -23,6 +24,10 @@ startBtn.addEventListener("click", function () {
     }, 1000);
     startBtn.style.visibility = "hidden";
 })
+submitBtn1.addEventListener("click", function () {
+    console.log("hello");
+})
+
 
 
 

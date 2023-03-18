@@ -14,7 +14,7 @@
     </header>
     <main>
         <div id="start-quiz">
-            <button id="start-button">START QUIZ</button>
+            <button type="button" id="start-button">START QUIZ</button>
             <div id="timer">
                 <h2>time:</h2>
                 <div id="count-down"></div>
@@ -27,22 +27,22 @@
                     <ul class="answer-options">
                         <li>
                             <input name="answer1" type="radio" id="q1a1">
-                            <label for="option-one" id="option-one">can contain only one data type</label>
+                            <label for="q1a1">can contain only one data type</label>
                         </li>
                         <li>
                             <input name="answer1" type="radio" id="q1a2">
-                            <label for="option-two" id="option-two">begins at index 1</label>
+                            <label for="q1a2">begins at index 1</label>
                         </li>
                         <li>
                             <input name="answer1" type="radio" id="q1a3">
-                            <label for="option-three" id="option-three">is not resizable</label>
+                            <label for="q1a3">is not resizable</label>
                         </li>
                         <li>
-                            <input name="answer1" type="radio" name="option-four" value="correct" id="q1a4">
-                            <label for="option-four" id="option-four">can be defined with empty slots</label>
+                            <input name="answer1" type="radio" value="correct" id="q1a4">
+                            <label for="q1a4">can be defined with empty slots</label>
                         </li>
                     </ul>
-                    <button class="submit-button" id="submit-button-one">SUBMIT</button>
+                    <input type="button" value="SUBMIT" class="submit-button" id="submit-button-one">
                 </fieldset>
             </form>
         </div>
