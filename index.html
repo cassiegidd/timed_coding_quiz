@@ -9,10 +9,13 @@
     <title>Timed Coding Quiz</title>
   </head>
   <body>
+
     <header>
         <h1>CODING QUIZ</h1>
     </header>
+
     <main>
+
         <div id="start-quiz">
             <button type="button" id="start-button">START QUIZ</button>
             <div id="timer">
@@ -20,7 +23,8 @@
                 <div id="count-down"></div>
             </div>
         </div>
-        <div class="quiz-content">
+
+        <div hidden id="quiz-content">
             <form>
                 <fieldset hidden id="fieldset1">
                     <legend class="questions">An array...</legend>
@@ -45,6 +49,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-one">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset2">
                     <legend class="questions">Which data type returns a true/false value?</legend>
@@ -69,6 +74,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-two">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset3">
                     <legend class="questions">JavaScript code is written between _______ tags.</legend>
@@ -93,6 +99,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-three">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset4">
                     <legend class="questions">What is a JavaScript variable?</legend>
@@ -117,6 +124,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-four">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset5">
                     <legend class="questions">Which is NOT a JavaScript Array method?</legend>
@@ -141,6 +149,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-five">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset6">
                     <legend class="questions">Which operator is NOT a valid comparison operator?</legend>
@@ -165,6 +174,7 @@
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-six">
                 </fieldset>
             </form>
+
             <form>
                 <fieldset hidden id="fieldset7">
                     <legend class="questions">What type of variable can contain multiple values?</legend>
@@ -188,7 +198,18 @@
                     </ul>
                     <input type="button" value="SUBMIT" class="submit-button" id="submit-button-seven">
                 </fieldset>
-            </form>
+            </form>    
+        </div>
+
+        <div hidden id="your-score">
+            <p class="score">Your score is</p>
+            <label for="initials">ENTER YOUR INITIALS</label>
+            <input name="initials" type="text" id="initials">
+        </div>
+    
+        <div>
+            <p hidden id="game-over">GAME OVER</p>
+
         </div>
     </main>
    
