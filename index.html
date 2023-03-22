@@ -13,6 +13,10 @@
     <header>
         <h1>CODING QUIZ</h1>
     </header>
+    <div id="high-scores">
+        <h2>high scores</h2>
+        <div class="dropdown"></div>
+    </div>
 
     <main>
 
@@ -201,11 +205,11 @@
             </form>    
         </div>
 
-        <div hidden id="your-score">
-            <p class="score">Your score is</p>
+        <form hidden onsubmit="saveName();return false" id="initials-input">
+            <p class="score"></p>
             <label for="initials">ENTER YOUR INITIALS</label>
             <input name="initials" type="text" id="initials">
-        </div>
+        </form>
     
         <div>
             <p hidden id="game-over">GAME OVER</p>

@@ -64,4 +64,11 @@ h1 {
     margin: 100px 30px 200px 30px;
     height: 200px;
     line-height: 200px;
+}   
+
+.dropdown {
+    display: none;
+}
+#high-scores:hover .dropdown {
+    display: block;
 }

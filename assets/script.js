@@ -1,6 +1,7 @@
 var startBtn = document.querySelector("#start-button");
 var timer = document.querySelector("#count-down");
 var timeLeft = 60; //do i need this in the global and do i need to pass this value in the global variable?
+var savedTime = ""; //empty variable to pass final score
 var quizEnd = false;
 var fieldset1 = document.querySelector("#fieldset1");
 var fieldset2 = document.querySelector("#fieldset2");
@@ -20,11 +21,8 @@ var wrong = document.createElement("p");
 var correct = document.createElement("p");
 var gameOver = document.querySelector("#game-over");
 var quiz = document.querySelector("#quiz-content");
-
-
-var yourScore = document.querySelector("#your-score");
-
-// var scores = JSON.parse(localStorage.getItem("scores")) ?? [];
+var initialsInput = document.querySelector("#initials-input");
+var highScores = document.querySelector(".dropdown");
 
 
 // var answer1 = document.querySelector("input[name=answer1]");
@@ -47,7 +45,7 @@ startBtn.addEventListener("click", function () {
             clearInterval(timerInterval);
             gameOver.removeAttribute("hidden");
             quiz.hidden = true;
-            yourScore.removeAttribute("hidden");
+            initialsInput.removeAttribute("hidden");   
         }    
     }, 1000);
 })
@@ -156,16 +154,44 @@ submitBtn7.addEventListener("click", function () {
         quiz.appendChild(correct);
     }
     quizEnd = true;
-    
+    localStorage.setItem("score", timeLeft);
+    document.querySelector(".score").innerText = "Your score is " + (timeLeft-1);
 
+    // gameOver.removeAttribute("hidden");
+    // initialsInput.removeAttribute("hidden");
     
-
-    // var player = prompt("Please provide you name?");
-    // var playerExist = scores.find(obj => obj.player === player);
-    // if(!playerExist){
-    //     scores = scores.push({ player: player, score: (timeLeft - 1)});
-    //     localStorage.setItem("scores", scores);   
+    
 })
+
+// initialsInput.addEventListener("submit", saveName);
+
+function saveName() {
+    var initials = document.querySelector("#initials").value;
+    localStorage.setItem("initials", initials);
+    console.log(initials);
+}
+
+function getName() {
+    return localStorage.getItem("initials");
+}
+
+function getScore() {
+    return localStorage.getItem("score");
+}
+
+
+function logScore() {
+    var name = getName();
+    var score = getScore() - 1;
+    var li = document.createElement("li");
+    li.innerHTML = name + " = " + score;
+    console.log(getScore);
+    highScores.appendChild(li);
+}
+logScore();
+
+
+
 
 
 
