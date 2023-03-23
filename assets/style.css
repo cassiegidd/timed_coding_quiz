@@ -66,9 +66,9 @@ h1 {
     line-height: 200px;
 }   
 
-.dropdown {
+#scores-list {
     display: none;
 }
-#high-scores:hover .dropdown {
+#high-scores:hover #scores-list {
     display: block;
 }

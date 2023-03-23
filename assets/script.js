@@ -22,7 +22,7 @@ var correct = document.createElement("p");
 var gameOver = document.querySelector("#game-over");
 var quiz = document.querySelector("#quiz-content");
 var initialsInput = document.querySelector("#initials-input");
-var highScores = document.querySelector(".dropdown");
+var scoresList = document.querySelector("#scores-list");
 
 
 // var answer1 = document.querySelector("input[name=answer1]");
@@ -43,9 +43,10 @@ startBtn.addEventListener("click", function () {
         timer.textContent = timeLeft;
         if(timeLeft === 0 || quizEnd) {
             clearInterval(timerInterval);
+            initialsInput.removeAttribute("hidden");
             gameOver.removeAttribute("hidden");
             quiz.hidden = true;
-            initialsInput.removeAttribute("hidden");   
+               
         }    
     }, 1000);
 })
@@ -156,39 +157,41 @@ submitBtn7.addEventListener("click", function () {
     quizEnd = true;
     localStorage.setItem("score", timeLeft);
     document.querySelector(".score").innerText = "Your score is " + (timeLeft-1);
-
-    // gameOver.removeAttribute("hidden");
+    gameOver.removeAttribute("hidden");
     // initialsInput.removeAttribute("hidden");
-    
-    
 })
 
-// initialsInput.addEventListener("submit", saveName);
+// initialsInput.addEventListener("submit", saveName)
 
-function saveName() {
-    var initials = document.querySelector("#initials").value;
-    localStorage.setItem("initials", initials);
-    console.log(initials);
-}
+// function saveName() {
+//     var initials = document.querySelector("#initials").value;
+//     localStorage.setItem("initials", initials);
+//     console.log(initials);
+// }
+ 
+var initials = document.getElementById("initials");
+var allScores = JSON.parse(localStorage.getItem("All Scores")) || [];
 
-function getName() {
-    return localStorage.getItem("initials");
-}
+function saveScore(event) {
+    event.preventDefault();
+    initialsInput.hidden = true;
+    var score = {
+        score: timeLeft,
+        name: initials.value,
+    };
+    allScores.push(score);  
 
-function getScore() {
-    return localStorage.getItem("score");
-}
+    function logScore() {
+        var ul = document.createElement("ul");
+        var li = document.createElement("li");
+        ul.appendChild(li);
+        li.innerHTML = score.name + " = " + score.score;
+        scoresList.appendChild(ul);
+    }
+    logScore();
+}  
 
 
-function logScore() {
-    var name = getName();
-    var score = getScore() - 1;
-    var li = document.createElement("li");
-    li.innerHTML = name + " = " + score;
-    console.log(getScore);
-    highScores.appendChild(li);
-}
-logScore();
 
 
 
