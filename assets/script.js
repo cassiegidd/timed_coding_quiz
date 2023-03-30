@@ -1,7 +1,6 @@
 var startBtn = document.querySelector("#start-button");
 var timer = document.querySelector("#count-down");
-var timeLeft = 60; //do i need this in the global and do i need to pass this value in the global variable?
-var savedTime = ""; //empty variable to pass final score
+var timeLeft = 60; 
 var quizEnd = false;
 var fieldset1 = document.querySelector("#fieldset1");
 var fieldset2 = document.querySelector("#fieldset2");
@@ -25,15 +24,7 @@ var initialsInputDiv = document.querySelector("#initials-input");
 var initialsInput = document.querySelector("#initials");
 var scoresList = document.querySelector("#scores-list");
 var scoreHistory = [];
-
-
-// var answer1 = document.querySelector("input[name=answer1]");
-// var answer2 = document.querySelector("input[name=answer2]");
-// var answer3 = document.querySelector("input[name=answer3]");
-// var answer4 = document.querySelector("input[name=answer4]");
-// var answer5 = document.querySelector("input[name=answer5]");
-// var answer6 = document.querySelector("input[name=answer6]");
-// var answer7 = document.querySelector("input[name=answer7]"); 
+var score = 0;
 
 // at the click of the START button, this function will create and start a timer countdown and make visible the first question form
 startBtn.addEventListener("click", function () {
@@ -69,6 +60,7 @@ submitBtn1.addEventListener("click", function () {
         fieldset2.appendChild(correct);
     }  
 })
+// at the click of each submit button (one submit button for each question), a function will hide the current form and bring forward the next form
 submitBtn2.addEventListener("click", function () {
     fieldset2.hidden = true;
     fieldset3.removeAttribute("hidden");
@@ -156,23 +148,39 @@ submitBtn7.addEventListener("click", function () {
         correct.classList.add("correct-class");
         quiz.appendChild(correct);
     }
+    //when quiz end is true, the timer interval will stop
     quizEnd = true;
-    localStorage.setItem("score", timeLeft);
-    // localStorage.setItem("initials", initialsInput.value);
+
+    score = timeLeft;
 
     document.querySelector(".score").innerText = "Your score is " + (timeLeft-1);
     gameOver.removeAttribute("hidden");
-    // initialsInputDiv.removeAttribute("hidden");
-    
-})
-
-function saveInitials() {
-    localStorage.setItem("initials", initialsInput.value);
-    // var savedInitials = localStorage.getItem("initials");
-    // var savedScore = localStorage.getItem("score");
-    var li = document.createElement("li");
-    li.innerHTML = localStorage.getItem("initials") + " = " + localStorage.getItem("score");
-    scoresList.appendChild(li);
+});
+// function to save initials and score to local storage
+function saveInitials(event) {
+    event.preventDefault();
+    var highScores = JSON.parse(localStorage.getItem("high-scores") )|| [];
+    console.log(highScores);
+    var newScore = {
+        score: (score -1),
+        intials: initialsInput.value,
+    }
+    console.log(newScore);
+    highScores.push(newScore);
+    localStorage.setItem("high-scores", JSON.stringify(highScores));
+    getHighScores();
+};
+// function to get saved high scores from local storage and display them on page
+function getHighScores() {
+    var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
+    console.log(highScores);
+    for (i=0; i<highScores.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = highScores[i].intials + " = " + highScores[i].score;
+        scoresList.appendChild(li);
+    };    
     initialsInputDiv.hidden = true;
-}
+};
+getHighScores();
 
+initialsInputDiv.addEventListener("submit", saveInitials);
